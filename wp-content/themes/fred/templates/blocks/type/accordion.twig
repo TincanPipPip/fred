@@ -1,0 +1,12 @@
+<section class="{{ className }} {{ className }}__{{ blockName }}">
+  {% include '_partials/block-title.twig' %}
+
+  <div class="js-accordion">
+    {% for row in fields.accordion %}
+      <h3 class="h4 js-accordion__header">{{ row.title }}</h3>
+      <div class="js-accordion__panel">
+        {{ row.copy }}
+      </div>
+    {% endfor %}
+  </div>
+</section>

@@ -1,0 +1,28 @@
+{% extends "/layout/base.twig" %}
+
+{% block content %}
+  <article class="post-type-{{post.post_type}}" data-template="404">
+
+    {% set image = options.fourohfour_image %}
+
+    {% if image %}
+      <figure class="m-banner">
+        <picture>
+          <source media="(max-width: 400px)" data-srcset="{{ Image(image).src|resize(400) }} 1x, {{ Image(image).src|resize(800) }} 2x" type="image/jpeg">
+          <source media="(max-width: 800px)" data-srcset="{{ Image(image).src|resize(800) }} 1x, {{ Image(image).src|resize(1600) }} 2x" type="image/jpeg">
+          <img data-src="{{ Image(image).src }}" alt="{{ image.alt }}" data-srcset="{{ Image(image).src }} 1x, {{ Image(image).src }} 2x" class="lazy" />
+        </picture>
+        {% include "atoms/image-credit.twig" with {
+          credit: image.caption
+        } %}
+      </figure>
+    {% endif %}
+
+    <h1>{{ options.fourohfour_title }}</h1>   
+    
+    <div class="m-entity m-entity__intro">
+      {{ options.fourohfour_copy }}
+    </div>
+
+	</article>
+{% endblock %}

@@ -1,0 +1,10 @@
+{#
+  Image credit
+  - credit: string
+#}
+
+{% if credit %}
+  <button type="button" class="a-image-credit" data-credit="{{ credit }}" aria-label="Image credit {{ credit }}">
+    <span>i</span>
+  </button>
+{% endif %}

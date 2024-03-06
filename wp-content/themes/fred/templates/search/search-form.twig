@@ -1,0 +1,12 @@
+<section class="m-search-form">
+  <div class="grid">
+    <div class="col-sm-12">
+      
+      <form role="search" method="get" id="searchform" action="{{site.link}}">
+        <input type="search" value="{{ function('get_search_query') }}" name="s" id="s" aria-label="Search site input" placeholder="Search" />
+        <button type="submit" id="searchsubmit" value="Search" aria-label="Search site submit" class="a-btn a-btn--icon">Submit</button>
+      </form>
+
+    </div>
+  </div>
+</section>

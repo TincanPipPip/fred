@@ -1,0 +1,41 @@
+{% block html_head_container %}
+
+	{% include 'html-header.twig' %}
+		{% block head %}
+	{% endblock %}
+	</head>
+{% endblock %}
+
+	<body class="{{body_class}}" data-template="/layout/base.twig">
+
+		<a class="a-skip-link" href="#content">{{ _e( 'Skip to content') }}</a>
+
+		{% block header %}
+			{% include '/organisms/header.twig' %}
+		{% endblock %}
+
+    {% include "search/search-form.twig" %}
+
+		<main id="content" role="main">
+    
+			{% if title %}
+        {% include "molecules/banner-alt.twig" %}
+      {% endif %}
+
+			{% block content %}
+				Sorry, no content
+			{% endblock %}
+
+		</main>
+
+		{% block footer %}
+			{% include '/organisms/footer.twig' %}
+		{% endblock %}
+
+    {% if options.show_message %}
+      {% include "molecules/emmsg.twig" %}
+    {% endif %}
+
+		{{ function('wp_footer') }}
+	</body>
+</html>

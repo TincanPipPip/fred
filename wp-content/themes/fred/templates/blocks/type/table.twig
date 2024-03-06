@@ -1,0 +1,23 @@
+<section class="{{ className }} {{ className }}__{{ blockName }}">
+  
+  <table>
+    <caption class="h2">{{ fields.table.caption }}</caption>
+    <thead>
+      <tr>
+        {% for tableHeading in fields.table.header %}
+          <th scope="col">{{ tableHeading.c }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for tableRow in fields.table.body %}
+        <tr>
+          {% for tableCell in tableRow %}
+            <td>{{ tableCell.c }}</td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+</section>

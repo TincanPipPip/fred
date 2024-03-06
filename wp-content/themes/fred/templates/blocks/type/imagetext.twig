@@ -1,0 +1,36 @@
+<section class="{{ className }} {{ className }}__{{ blockName }}">
+  <div class="m-imagetext {% if fields.alignment %}m-imagetext--reverse{% endif %}">
+
+    {% set image = fields.image %}
+
+    <figure class="m-imagetext__image">
+      <picture>
+        <source media="(max-width: 400px)" data-srcset="{{ Image(image).src|resize(400) }} 1x, {{ Image(image).src|resize(800) }} 2x" type="image/jpeg">
+        <source media="(max-width: 800px)" data-srcset="{{ Image(image).src|resize(800) }} 1x, {{ Image(image).src|resize(1600) }} 2x" type="image/jpeg">
+        <img 
+          alt="{{ image.alt }}" 
+          {% if is_preview %}
+            src="{{ Image(image).src|resize(400)  }}"
+          {% else %}    
+            data-src="{{ Image(image).src|resize(400) }}"
+            data-srcset="{{ Image(image).src|resize(400) }} 1x, {{ Image(image).src|resize(800) }} 2x"
+            class="lazy"
+          {% endif %}
+        />
+      </picture>
+
+      {% if image.caption %}
+        {% include "_partials/image-credit.twig" with {credit: image.caption} %}
+      {% endif %}
+    </figure>
+
+    <div class="m-imagetext__copy">
+      {% if fields.title %}
+        <h3 class="h4">{{ fields.title }}</h3>
+      {% endif %}
+
+      {{ fields.copy }}
+    </div>
+    
+  </div>
+</section>

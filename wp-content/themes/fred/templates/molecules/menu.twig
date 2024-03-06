@@ -1,0 +1,10 @@
+{% if items %}
+	<ul>
+	{% for item in items %}
+		<li class="">
+			<a target="{{ item.target }}" href="{{ item.link }}" class="{{ item.classes | join(' ') }}">{{ item.title }}</a>
+			{# {% include "/molecules/menu.twig" with {'items': item.children} %} #}
+		</li>
+	{% endfor %}
+	</ul>
+{% endif %}

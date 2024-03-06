@@ -1,0 +1,27 @@
+<footer class="o-footer">
+
+  {% if options.social_links %}
+    <div class="o-footer__social">
+      {% if options.social_links_title %}
+        <h3>{{ options.social_links_title }}</h3>
+      {% endif %}
+      
+      <div class="m-social-links">
+        {% for links in options.social_links %}
+          {% include "atoms/social-link.twig" with {
+            link: links.link
+          } %}
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="o-footer__legal">
+    {% if options.legal_copy %}
+      <small>&copy; {{ options.legal_copy }} {{ now|date('Y') }}</small>
+    {% endif %}
+  </div>
+
+  <small><a href="https://un.titled.co.uk" target="_blank" rel="nofollow noopener">An Un.titled site</a></small>
+
+</footer>

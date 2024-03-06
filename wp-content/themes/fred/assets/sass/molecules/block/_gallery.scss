@@ -1,0 +1,16 @@
+/**
+ * ----------------------
+ * Un.titled
+ * Molecules - Gallery
+ * ----------------------
+ */
+
+&__gallery {
+  figure {
+    width: 100%;
+  }
+
+  figcaption {
+    font-size: var(--fontSmall);
+  }
+}

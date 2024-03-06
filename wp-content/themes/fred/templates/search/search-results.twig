@@ -1,0 +1,27 @@
+{% extends "/layout/base.twig" %}
+
+{% block content %}
+  <main class="o-search-results">
+    <div class="grid">
+      <div class="col-sm-12">
+        
+        <div class="m-entity m-entity__search-results">
+          {% if posts.found_posts == 0 %}
+            <div class="o-search-results__no-results">
+              {{ options.no_results_site_search }}
+            </div>
+          {% else %}
+            {% for post in posts %}
+              {% include "/organisms/teaser.twig" with {
+                teaser: post,
+              } %}
+            {% endfor %}
+          {% endif %}
+        </div>
+        
+        {% include 'atoms/pagination.twig' with { toPaginate: posts.pagination, pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+        
+      </div>
+    </div>
+  </main>
+{% endblock %}

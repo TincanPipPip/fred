@@ -1,0 +1,7 @@
+{% set blockName = block["name"]|replace({'acf/':''}) %}
+
+{% if is_preview %}
+  <h4 class="preview-title">{{ block['title'] }}</h4>
+{% endif %}
+
+{% include "blocks/type/" ~ blockName ~ ".twig" with {className: 'm-entity', blockName: blockName} %}

@@ -1,0 +1,3 @@
+# Pantheon's documentation on robots.txt: https://docs.pantheon.io/bots-and-indexing/
+User-agent: *
+Disallow: /

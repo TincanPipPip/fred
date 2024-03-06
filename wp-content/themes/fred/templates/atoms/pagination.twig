@@ -1,0 +1,29 @@
+{% if toPaginate.pages is not empty %}
+  <nav class="a-pager">
+
+    {# {% if toPaginate.pages|first and toPaginate.pages|first.current != true %}
+      <a href="{{ toPaginate.pages|first.link }}" aria-label="First page">First</a>
+    {% endif %} #}
+
+    {% if toPaginate.prev %}
+      <a href="{{ toPaginate.prev.link }}" aria-label="Previous page">{% include 'img/arrow-prev.svg' %}</a>
+    {% endif %}
+
+    {% for page in toPaginate.pages %}
+      {% if page.link %}
+        <a href="{{ page.link }}" class="{{ page.class }}" aria-label="Go to {{ page.title }}">{{ page.title }}</a>
+      {% else %}
+        <span aria-label="Current page">{{ page.title }}</span>
+      {% endif %}
+    {% endfor %}
+
+    {% if toPaginate.next %}
+      <a href="{{ toPaginate.next.link }}" aria-label="Next page">{% include 'img/arrow-next.svg' %}</a>
+    {% endif %}
+
+    {# {% if toPaginate.pages|last and toPaginate.pages|last.current != true %}
+      <a href="{{ toPaginate.pages|last.link }}" aria-label="Last page">Last</a>
+    {% endif %} #}
+
+  </nav>
+{% endif %}

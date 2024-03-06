@@ -1,0 +1,47 @@
+/**
+ * ----------------------
+ * Un.titled
+ * Config - Vars
+ * ----------------------
+ */
+
+:root {
+  // Colours
+  --c-primary: #0e3034;
+  --c-secondary: #ffb81c;
+  --c-white: #ffffff;
+  --c-black: #000;
+
+  // Typography
+  --fontBody: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --fontBold: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --fontItalic: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --fontTitle: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --fontSize: 112.5%;
+  --fontSmall: 70%;
+  --lineHeight: 1.5;
+
+  // Layout
+  --containerWidth: 1802px;
+  --gutter: 1rem;
+
+  // Animations
+  --easing: cubic-bezier(0.83, 0, 0.17, 1);
+  --transition: 0.3s var(--easing);
+}
+
+/**
+* Breakpoints for @include-media
+*/
+$breakpoints: (
+  xxs: 360px,
+  xs: 576px,
+  sm: 768px,
+  md: 992px,
+  lg: 1200px,
+  xlg: 1600px,
+);

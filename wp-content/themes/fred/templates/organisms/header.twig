@@ -1,0 +1,15 @@
+<header class="o-header" aria-label="Site header">
+
+  <a class="o-header__logo" href="{{site.url}}" rel="home" aria-label="{{ site.name }}" title="{{ site.name }}">
+    {% include 'img/logo.svg' ignore missing %}
+  </a>
+
+  <nav class="m-nav" role="navigation">
+    {% include "/molecules/menu.twig" with {'items': mainnav.get_items} %}
+  </nav>
+  
+  <button class="a-nav-toggle" title="Toggle Nav" aria-label="Toggle menu" type="button">
+    Menu
+  </button>
+
+</header>

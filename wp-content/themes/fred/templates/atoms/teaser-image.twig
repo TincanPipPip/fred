@@ -1,0 +1,40 @@
+{#
+  Teaser & listing teaser image crop options
+  - type: string
+  - imageMaxHeight: int
+  - imageMaxWidth: int
+  - imageWidths: [{size: int, imageWidth: int , imageWidth2x: int}]
+#}
+
+{% set width = imageMaxWidth ? imageMaxWidth : 0 %}
+{% set height = imageMaxHeight ? imageMaxHeight : 0 %}
+
+{% set image = teaser.thumbnail %}
+
+<figure>
+  <picture>
+    {% if imageWidths %}
+      {% for breakpoint in imageWidths %}
+        <source 
+          media="(max-width: {{ breakpoint.size }}px)" 
+          data-srcset="{{ breakpoint.imageWidth2x ? Image(image).src|resize(breakpoint.imageWidth) ~ ' 1x, ' ~ Image(image).src|resize(breakpoint.imageWidth2x) ~ ' 2x' : Image(image).src|resize(breakpoint.imageWidth) }}" 
+          type="image/jpeg"
+        >
+      {% endfor %}
+    {% else %}
+      <source media="(max-width: 400px)" data-srcset="{{ Image(image).src|resize(400) }}1x, {{ Image(image).src|resize(800) }} 2x" type="image/jpeg">
+      <source media="(max-width: 800px)" data-srcset="{{ Image(image).src|resize(800) }}1x, {{ Image(image).src|resize(1600) }} 2x" type="image/jpeg">
+    {% endif %}
+  
+    <img 
+      {% if is_preview %}
+        src="{{ Image(image).src|resize(width, height) }}"
+      {% else %}
+        data-src="{{ Image(image).src|resize(width, height) }}"
+        data-srcset="{{ Image(image).src|resize(width, height) }} 1x, {{ Image(image).src|resize(width * 2, height * 2) }} 2x"
+        class="lazy"
+      {% endif %}
+      alt="{{ image.alt }}"
+    />
+  </picture>
+</figure>

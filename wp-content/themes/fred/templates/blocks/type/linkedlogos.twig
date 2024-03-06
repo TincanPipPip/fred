@@ -1,0 +1,25 @@
+<section class="{{ className }} {{ className }}__{{ blockName }}">
+  {% include '_partials/block-title.twig' with {classes:['h4']} %}
+
+  <div class="a-auto-grid">
+    {% for logo in fields.logos %}
+      {% if logo.link.url %}
+        <a href="{{ logo.link.url }}" aria-label="{{ logo.link.title }}" target="{{ logo.link.target }}">
+      {% endif %}
+
+      <img 
+        {% if is_preview %}
+          src="{{ Image(logo.logo).src|resize(270) }}" 
+        {% else %}
+          data-src="{{ Image(logo.logo).src }}"
+          class="lazy" 
+        {% endif %}
+        alt="{{ logo.logo.alt }}"
+      />
+
+      {% if logo.link.url %}
+        </a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>

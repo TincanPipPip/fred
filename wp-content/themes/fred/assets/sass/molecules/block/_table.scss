@@ -1,0 +1,31 @@
+/**
+ * ----------------------
+ * Un.titled
+ * Molecules - Tables
+ * ----------------------
+ */
+
+&__table {
+  table {
+    width: 100%;
+    text-align-last: left;
+    text-align: left;
+    border-spacing: 2px;
+    border-collapse: unset;
+
+    th {
+      background-color: var(--c-secondary);
+      color: var(--c-primary);
+      font-weight: bold;
+    }
+
+    td {
+      transition: 0.2s var(--easing);
+    }
+
+    td,
+    th {
+      padding: 0.5rem;
+    }
+  }
+}

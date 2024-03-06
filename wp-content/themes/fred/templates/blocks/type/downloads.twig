@@ -1,0 +1,9 @@
+<section class="{{ className }} {{ className }}__{{ blockName }}">
+  {% include '_partials/block-title.twig' with {classes:['h4']} %}
+
+  {% for download in fields.downloads %}
+    <a href="{{ download.file.url }}">
+      {{ download.file.description ? download.file.description : download.file.title }}
+    </a>
+  {% endfor %}
+</section>

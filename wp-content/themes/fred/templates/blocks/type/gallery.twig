@@ -1,0 +1,31 @@
+<section class="{{ className }} {{ className }}__{{ blockName }} gallery">
+ 
+  {% include '_partials/block-title.twig' with {classes:['centered', 'border-bottom']} %}
+
+  {% for image in fields.images %}
+    <a
+      href="{{ Image(image).src }}" 
+      aria-label="View {{ image.title }} image fullsize"
+    >
+      <figure>
+        <picture>
+          <source media="(max-width: 360px)" data-srcset="{{ Image(image).src|resize(147) }} 1x, {{ Image(image).src|resize(294) }} 2x" type="image/jpeg">
+          <source media="(max-width: 575px)" data-srcset="{{ Image(image).src|resize(255) }} 1x, {{ Image(image).src|resize(510) }} 2x" type="image/jpeg">
+          <source media="(max-width: 768px)" data-srcset="{{ Image(image).src|resize(222) }} 1x, {{ Image(image).src|resize(444) }} 2x" type="image/jpeg">
+          <source media="(max-width: 992px)" data-srcset="{{ Image(image).src|resize(296) }} 1x, {{ Image(image).src|resize(592) }} 2x" type="image/jpeg">
+          <img 
+            {% if is_preview %}
+              src="{{ Image(image).src|resize(600) }}"
+            {% else %}
+              data-src="{{ Image(image).src|resize(600) }}"
+              data-srcset="{{ Image(image).src|resize(600) }} 1x, {{ Image(image).src|resize(1200) }} 2x"
+              class="lazy"
+            {% endif %}
+            alt="{{ image.alt }}"
+          />
+        </picture>          
+      </figure>
+    </a>
+  {% endfor %}
+
+</section>

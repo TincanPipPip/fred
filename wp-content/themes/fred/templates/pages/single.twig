@@ -1,0 +1,25 @@
+{% extends "/layout/base.twig" %}
+
+{% block content %}
+	<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}" data-template="single.twig">
+
+    {% include "/molecules/banner.twig" %}
+      
+    {% for block in blocks %}
+      {{ block }}
+    {% endfor %}
+
+    <div class="m-post-info">
+      <strong>Posted: {{ post.post_date|date('l, F jS, Y') }}</strong>
+      
+      <div class="m-post-info__categories">
+        <strong>Tagged with:</strong>
+
+        {% for category in post.terms('category') %}
+          <a href="{{ category.id }}" class="a-btn--sm">{{ category.name }}</a>
+        {% endfor %}
+      </div>
+    </div>
+
+	</article>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "pages/index.twig" %}
+
+{% block content %}
+  <article class="post-type-archive" data-template="archive">
+
+    <h1>{{ title }}</h1>
+
+    <section class="m-entity m-entity__archives">
+      {% if posts|length > 0 %}          
+        {% for post in posts %}
+          {% include "organisms/teaser.twig" with {
+            teaser: post,
+            type: 'teaser',
+            imageMaxWidth: 400,
+            imageWidths: [
+              {
+                size: 400,
+                imageWidth: 400,
+                imageWidth2x: 800
+              },
+              {
+                size: 800,
+                imageWidth: 800,
+                imageWidth2x: 1600
+              },
+            ]
+          } %}
+        {% endfor %}
+
+        {% include 'atoms/pagination.twig' with { toPaginate: posts.pagination, pagination: posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
+      {% else %}
+        <p>{{ options.listing_block_no_results }}</p>
+      {% endif %}
+    </section>
+
+	</article>
+{% endblock %}
