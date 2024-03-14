@@ -3,6 +3,7 @@
     "/js/defaults.js": "/js/defaults.js",
     "/js/emmsg.js": "/js/emmsg.js",
     "/js/global.js": "/js/global.js",
+    "/js/gutenbergBlocks.js": "/js/gutenbergBlocks.js",
     "/css/print.css": "/css/print.css",
     "/css/global.css": "/css/global.css",
     "/css/admin.css": "/css/admin.css"

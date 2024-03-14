@@ -12,6 +12,7 @@ add_action( 'wp_enqueue_scripts', 'fred_assets' );
 function fred_assets() {
   wp_enqueue_style( 'global', get_template_directory_uri() . '/dist/css/global.css');
   wp_enqueue_script( 'defaults', get_template_directory_uri() . '/dist/js/defaults.js', array(), false, true );
+  wp_enqueue_script( 'gutenberg-blocks', get_template_directory_uri() . '/dist/js/gutenbergBlocks.js', array(), false, true );  
   wp_enqueue_script( 'global', get_template_directory_uri() . '/dist/js/global.js', array(), false, true );
   wp_enqueue_script( 'emmsg', get_template_directory_uri() . '/dist/js/emmsg.js', array(), false, true );
 }

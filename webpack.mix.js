@@ -48,7 +48,7 @@ mix.browserSync({
     `${themeAssets}/sass/**/*.scss`,
     `${themeAssets}/js/**/*.js`,
     `${themeAssets}/js/**/*.ts`,
-    `${themeAssets}/js/**/*.tsx`,
+    `${themeAssets}/tsx/gutenbergBlockApp/*.tsx`,
   ],
 })
 
@@ -70,8 +70,7 @@ mix.webpackConfig({
 glob.sass(`${themeAssets}/sass/*.scss`, 'css')
 glob.js(`${themeAssets}/js/*.js`, 'js')
 glob.js(`${themeAssets}/js/*.ts`, 'js')
-glob.js(`${themeAssets}/js/*.tsx`, 'js')
-
+glob.js(`${themeAssets}/tsx/gutenbergBlockApp/*.tsx`, 'js')
 
 mix.autoload({ 'jquery': ['window.$', 'window.jQuery'] })
 /**

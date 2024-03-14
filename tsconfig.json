@@ -15,6 +15,7 @@
   "include": [
     "./wp-content/themes/fred/assets/js/**/*.ts",
     "./wp-content/themes/fred/assets/js/**/*.tsx",
+    "wp-content/themes/fred/assets/tsx/gutenbergBlockApp/*.tsx",
   ],
   "exclude": ["node_modules", "./wp-content/themes/fred/dist", "./*.js"]
 }
