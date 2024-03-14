@@ -9,12 +9,12 @@
     "target": "es5",
     "esModuleInterop": true,
     "allowJs": true,
-    "outDir": "./wp-content/themes/pippip/dist"
+    "outDir": "./wp-content/themes/fred/dist"
   },
-  "files": ["./wp-content/themes/pippip/assets/types/index.d.ts"],
+  "files": ["./wp-content/themes/fred/assets/types/index.d.ts"],
   "include": [
-    "./wp-content/themes/pippip/assets/js/**/*.ts",
-    "./wp-content/themes/pippip/assets/js/**/*.tsx",
+    "./wp-content/themes/fred/assets/js/**/*.ts",
+    "./wp-content/themes/fred/assets/js/**/*.tsx",
   ],
-  "exclude": ["node_modules", "./wp-content/themes/pippip/dist", "./*.js"]
+  "exclude": ["node_modules", "./wp-content/themes/fred/dist", "./*.js"]
 }

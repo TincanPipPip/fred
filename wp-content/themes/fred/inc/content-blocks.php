@@ -117,8 +117,8 @@ acf_register_block( array(
 
 acf_register_block( array(
   'name'            => 'quote',
-  'title'           => __( 'Quote', 'pippip' ),
-  'description'     => __( 'Quote, testimonial or review', 'pippip' ),
+  'title'           => __( 'Quote', 'fred' ),
+  'description'     => __( 'Quote, testimonial or review', 'fred' ),
   'render_callback' => 'acf_block',
   'category'        => 'content',
   'icon'            => 'format-quote',

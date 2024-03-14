@@ -20,7 +20,7 @@ const mixGlob = require('laravel-mix-glob')
 /**
  * Variables
  */
-const themeDirectory = './wp-content/themes/pippip'
+const themeDirectory = './wp-content/themes/fred'
 const themeAssets = `${themeDirectory}/assets`
 const glob = new mixGlob({ mix })
 
@@ -49,8 +49,6 @@ mix.browserSync({
     `${themeAssets}/js/**/*.js`,
     `${themeAssets}/js/**/*.ts`,
     `${themeAssets}/js/**/*.tsx`,
-    `./wp-content/mu-plugins/gill-products/assets/js/**/*.tsx`,
-    `./wp-content/mu-plugins/gill-products/assets/js/**/**/*.tsx`,
   ],
 })
 
@@ -73,7 +71,6 @@ glob.sass(`${themeAssets}/sass/*.scss`, 'css')
 glob.js(`${themeAssets}/js/*.js`, 'js')
 glob.js(`${themeAssets}/js/*.ts`, 'js')
 glob.js(`${themeAssets}/js/*.tsx`, 'js')
-glob.js(`./wp-content/mu-plugins/gill-products/assets/js/reactview.tsx`, 'js')
 
 
 mix.autoload({ 'jquery': ['window.$', 'window.jQuery'] })
@@ -111,6 +108,7 @@ mix.webpackConfig({
     }),
   ],
 })
+
 
 /**
  * Custom Webpack Configuration
