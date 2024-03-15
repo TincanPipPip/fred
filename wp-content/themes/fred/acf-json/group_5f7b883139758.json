@@ -6,6 +6,7 @@
             "key": "field_5f7b8836aa33d",
             "label": "Title",
             "name": "title",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -25,6 +26,7 @@
             "key": "field_5f7b8855aa33e",
             "label": "Accordion",
             "name": "accordion",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "",
             "required": 1,
@@ -38,12 +40,14 @@
             "min": 0,
             "max": 0,
             "layout": "row",
-            "button_label": "",
+            "button_label": "Add Row",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_5f7b8860aa33f",
                     "label": "Title",
                     "name": "title",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -57,12 +61,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": ""
+                    "maxlength": "",
+                    "parent_repeater": "field_5f7b8855aa33e"
                 },
                 {
                     "key": "field_5f7b8866aa340",
                     "label": "Copy",
                     "name": "copy",
+                    "aria-label": "",
                     "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
@@ -76,7 +82,8 @@
                     "tabs": "all",
                     "toolbar": "full",
                     "media_upload": 0,
-                    "delay": 0
+                    "delay": 0,
+                    "parent_repeater": "field_5f7b8855aa33e"
                 }
             ]
         }
@@ -98,5 +105,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1621331154
+    "show_in_rest": 1,
+    "modified": 1710449153
 }
