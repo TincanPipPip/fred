@@ -12,7 +12,8 @@
     "start": "mix watch",
     "cypress": "export NODE_ENV=development && cypress open",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "kill": "killall webpack"
   },
   "eslintConfig": {
     "extends": [

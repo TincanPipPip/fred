@@ -1,19 +1,19 @@
-<section class="{{ className }} {{ className }}__{{ blockName }}">
+{#<section class="{{ className }} {{ className }}__{{ blockName }}">
   {% include '_partials/block-title.twig' %}
 
-  <div id="gutenbergBlock" data-block="accordion" data-page-index="{{ post.ID }}"></div>
-  
-
-  {# {{ dump(post.ID) }} #}
+  {{ dump(post.ID) }}
 
 
-  {# <div class="js-accordion">
+   <div class="js-accordion">
     {% for row in fields.accordion %}
       <h3 class="h4 js-accordion__header">{{ row.title }}</h3>
       <div class="js-accordion__panel">
         {{ row.copy }}
       </div>
     {% endfor %}
-  </div> #}
+  </div> 
 
 </section>
+#}
+
+<div class="gutenbergBlock" data-block="accordion" data-page-index="{{ post.ID }}"></div>

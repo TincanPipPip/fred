@@ -5,7 +5,7 @@ import { blockContextT } from './gutenbergBlockTypes'
 
 export const blockContext = createContext<Partial<blockContextT>>(null);
 
-const root = document.getElementById('gutenbergBlock')
+const root = document.querySelector('.gutenbergBlock') as HTMLElement;
 
 if (root) {
     const blockName = root.dataset.block || '';

@@ -1,28 +1,26 @@
 import React, { useEffect, useContext, useState } from 'react';
-import { Data } from '../../gutenbergBlockTypes';
+import { Data, AccordionData, AccordionRow } from '../../gutenbergBlockTypes';
 import AccordionFunctionality from './AccordionFunctionality';
-import { dataContext } from '../AppInit'
+import { dataContext } from '../AppInit';
 
 export default function Accordion() {
   const { loadedBlockData } = useContext(dataContext);
   const [processedData, setProcessedData] = useState<any[]>([]);
 
-  // Processing data from api - filtering out the accordion block data and pushing it to an array then setting the state
-
+  // i'm processing data retrieved from api - filtering out the accordion block data, structuring it as a multi-dimensional array then setting it to state
   useEffect(() => {
 
     if (loadedBlockData) {
-      const blockDataProcessingArray: any[] = [];
+      let blockDataProcessingArray: any[] = [];
 
-      // console.log("block running")
       for (const block of loadedBlockData as Data) {
+        
 
           if (block.blockName === 'acf/accordion') {
-          // console.log(block.blockName, "blockName")
-
           let rows = block.attrs.data;
 
           if (rows) {
+            let accordionData: any[] = [];
 
             for (let i = 0; i < Number(rows.accordion); i++) {
               const titleKey = `accordion_${i}_title`;
@@ -31,60 +29,62 @@ export default function Accordion() {
               if (rows.hasOwnProperty(titleKey) && rows.hasOwnProperty(copyKey)) {
                 const title = rows[titleKey as keyof typeof rows];
                 const copy = rows[copyKey as keyof typeof rows];
-                blockDataProcessingArray.push({ "title" : title, "copy" : copy });
+                accordionData.push({ "title" : title, "copy" : copy });
               }
-            } 
+            }
 
-            // console.log(processedData);
-            setProcessedData(blockDataProcessingArray);
+            blockDataProcessingArray.push({"accTitle" : rows.title, "accordionRows" : accordionData});
           }
         }
       }
+
+      setProcessedData(blockDataProcessingArray);
     }
   }, [loadedBlockData]);
 
-  // console.log(processedData);
-
-  useEffect(() => {
-    const accordions = document.querySelectorAll('.js-accordion h2');
-
-    console.log(accordions)
-
-    accordions.forEach((accordionEl) => {
-      new AccordionFunctionality(accordionEl as HTMLElement);
-    });
-  }, [processedData]);
+  const rowToggle = (el: HTMLButtonElement) => {
+    new AccordionFunctionality(el as HTMLElement);
+  }
 
   return (
-    <div className="js-accordion" role="tablist" aria-multiselectable="true" id="accordionGroup">
-    {processedData ? processedData.map((row: { title: string; copy: string; }, i: number) => (
+    <>
+      {processedData ? processedData.map((accordionData: AccordionData, i: number) => (
+
         <React.Fragment key={i}>
-          <h2 className="accordion__title">
-            <button
-              type="button"
-              aria-expanded="false"
-              className="js-accordion-trigger accordion__header"
-              aria-controls={`sect${i}`}
-              id={`accordion${i}id`}
-              role="tab"
-              aria-selected="false"
-              >
-              <span>
-                {row.title}
-              </span>
-            </button>
-          </h2>
-          <div
-            id={`sect${i}`}
-            role="region"
-            aria-labelledby={`accordion${i}id`}
-            className="js-accordion-panel accordion__panel"
-            aria-hidden="true"
-          >
-            <p>{row.copy}</p>
-          </div>
+          <section className="m-entity m-entity__accordion">
+            <h2>{accordionData.accTitle}</h2>
+            <div className="js-accordion">
+              {accordionData.accordionRows.map((accordion: AccordionRow, j: number) => (
+                <React.Fragment key={j}>
+                  <h2 className="accordion__title">
+                    <button
+                      type="button"
+                      aria-expanded="false"
+                      className="js-accordion-trigger accordion__header"
+                      aria-controls={`sect${i}-${j}`}
+                      id={`accordion${i}-${j}id`}
+                      onClick={(e) => rowToggle(e.target as HTMLButtonElement)}
+                    >
+                      <span>
+                        {accordion.title}
+                      </span>
+                    </button>
+                  </h2>
+                  <div
+                    id={`sect${i}-${j}`}
+                    role="region"
+                    aria-labelledby={`accordion${i}-${j}id`}
+                    className="js-accordion-panel accordion__panel"
+                    aria-hidden="true"
+                  >
+                    <p>{accordion.copy}</p>
+                  </div>
+                </React.Fragment>
+              ))}
+            </div>
+          </section>
         </React.Fragment>
       )) : ''}
-    </div>
+    </>
   );
 }

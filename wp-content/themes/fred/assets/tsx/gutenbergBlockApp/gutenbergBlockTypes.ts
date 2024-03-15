@@ -1,3 +1,13 @@
+export interface AccordionData {
+  accTitle: string;
+  accordionRows: AccordionRow[];
+}
+
+export type AccordionRow = {
+  title: string;
+  copy: string;
+};
+
 export type Data = Array<{
   title: string;
   copy: string;
