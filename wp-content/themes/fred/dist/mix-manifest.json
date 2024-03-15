@@ -1,10 +1,11 @@
 {
-    "/js/admin.accordion.js": "/js/admin.accordion.js",
-    "/js/defaults.js": "/js/defaults.js",
-    "/js/emmsg.js": "/js/emmsg.js",
-    "/js/global.js": "/js/global.js",
-    "/js/gutenbergBlocks.js": "/js/gutenbergBlocks.js",
-    "/css/print.css": "/css/print.css",
-    "/css/global.css": "/css/global.css",
-    "/css/admin.css": "/css/admin.css"
+    "/js/admin.accordion.js": "/js/admin.accordion.js?id=3d7bb8caa993d59990dc",
+    "/js/defaults.js": "/js/defaults.js?id=6cb09a1d9d5156375c8f",
+    "/js/emmsg.js": "/js/emmsg.js?id=fc90dcbfb56398b624c1",
+    "/js/global.js": "/js/global.js?id=d41d8cd98f00b204e980",
+    "/js/gutenbergBlocks.js": "/js/gutenbergBlocks.js?id=302aca96ecf30187b00f",
+    "/css/tailwind.css": "/css/tailwind.css?id=bd2ff5bd62748e1f1174",
+    "/css/print.css": "/css/print.css?id=50cdac295d0af6bdcc52",
+    "/css/global.css": "/css/global.css?id=eefbb54d1a9d598767a2",
+    "/css/admin.css": "/css/admin.css?id=f5efa44c7959ba91c249"
 }

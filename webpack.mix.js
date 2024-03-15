@@ -70,9 +70,13 @@ mix.webpackConfig({
 glob.sass(`${themeAssets}/sass/*.scss`, 'css')
 glob.js(`${themeAssets}/js/*.js`, 'js')
 glob.js(`${themeAssets}/js/*.ts`, 'js')
+glob.js(`${themeAssets}/js/*.tsx`, 'js')
 glob.js(`${themeAssets}/tsx/gutenbergBlockApp/*.tsx`, 'js')
+mix.copyDirectory(`${themeAssets}/font`, `${themeDirectory}/dist/font`)
 
-mix.autoload({ 'jquery': ['window.$', 'window.jQuery'] })
+.postCss(`${themeAssets}/css/tailwind.css`, `${themeDirectory}/dist/css`, [
+  require("tailwindcss"),
+]);
 /**
  * Custom Webpack Configuration
  * 1. Add Typescript support
