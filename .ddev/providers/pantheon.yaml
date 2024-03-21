@@ -41,7 +41,7 @@
 # `ddev exec terminus site:list` will show available sites
 
 environment_variables:
-  project: gill-marine-multisite.dev
+  project: fred.dev
 
 auth_command:
   command: |

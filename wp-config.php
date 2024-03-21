@@ -106,11 +106,7 @@ if (!empty($_ENV['PANTHEON_ENVIRONMENT'])) {
     define('PATH_CURRENT_SITE', '/');
     define('SITE_ID_CURRENT_SITE', 1);
     define('BLOG_ID_CURRENT_SITE', 1);
-} else {
-    // Override with a default hostname.
-    //$hostname = 'gillfishing.com';
-}
-
+} 
 
 // Enable WP_DEBUG mode
 
@@ -122,21 +118,6 @@ define('WP_DEBUG_LOG', true);
 define('WP_DEBUG_DISPLAY', false);
 @ini_set('display_errors', 0);
 
-// Use dev versions of core JS and CSS files (only needed if you are modifying these core files)
-/* Multisite */
-define('WP_ALLOW_MULTISITE', true );
-/* That's all, stop editing! Happy Pressing. */
-if (isset($_ENV['PANTHEON_ENVIRONMENT']) && ($_SERVER['HTTP_HOST'] == 'gillfishing.com') && (php_sapi_name() != "cli")) {
-    $newurl =  'https://www.gillfishing.com'.$_SERVER['REQUEST_URI'];
-    header('HTTP/1.0 301 Moved Permanently');
-    header("Location: $newurl");
-    // Name transaction "redirect" in New Relic for improved reporting (optional).
-    if (extension_loaded('newrelic')) {
-      newrelic_name_transaction("redirect");
-    }
-
-    exit();
-  }
 /** Absolute path to the WordPress directory. */
 if (!defined('ABSPATH'))
     define('ABSPATH', dirname(__FILE__) . '/');
