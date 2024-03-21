@@ -3,6 +3,7 @@
   {% include '_partials/block-title.twig' with {classes:['centered', 'border-bottom']} %}
 
   {% for image in fields.images %}
+
     <a
       href="{{ Image(image).src }}" 
       aria-label="View {{ image.title }} image fullsize"
@@ -21,11 +22,23 @@
               data-srcset="{{ Image(image).src|resize(600) }} 1x, {{ Image(image).src|resize(1200) }} 2x"
               class="lazy"
             {% endif %}
+              width=600
+              height=400
             alt="{{ image.alt }}"
           />
         </picture>          
       </figure>
     </a>
   {% endfor %}
+
+  <script charset="utf-8" type="text/javascript" src="//js-eu1.hsforms.net/forms/embed/v2.js"></script>
+<script>
+  hbspt.forms.create({
+    region: "eu1",
+    portalId: "143445058",
+    formId: "fe58a9d2-6ffa-4df0-a75d-e5f851495357"
+  });
+</script>
+
 
 </section>

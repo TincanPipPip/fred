@@ -6,10 +6,10 @@
   - imageWidths: [{size: int, imageWidth: int , imageWidth2x: int}]
 #}
 
-{% set width = imageMaxWidth ? imageMaxWidth : 0 %}
-{% set height = imageMaxHeight ? imageMaxHeight : 0 %}
+{% set width = imageMaxWidth ? imageMaxWidth : 10 %}
+{% set height = imageMaxHeight ? imageMaxHeight : 10 %}
 
-{% set image = teaser.thumbnail %}
+{% set image = teaser.teaser_image_override ? teaser.teaser_image_override : teaser.image %}
 
 <figure>
   <picture>

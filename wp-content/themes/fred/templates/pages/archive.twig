@@ -8,7 +8,7 @@
     <section class="m-entity m-entity__archives">
       {% if posts|length > 0 %}          
         {% for post in posts %}
-          {% include "organisms/teaser.twig" with {
+          {% include "molecules/teaser.twig" with {
             teaser: post,
             type: 'teaser',
             imageMaxWidth: 400,

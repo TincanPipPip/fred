@@ -7,9 +7,10 @@
       
     <h1>{{ post.title }}</h1>
 
-    {% for block in blocks %}
-      {{ block }}
-    {% endfor %}
+    {% if post.get_field("teaser_section") %}
+      <h1>keep</h1>
+      {% include "/organisms/teaser-section.twig" %}
+    {% endif %}
   
     <aside class="o-page__col o-page__right">
       {{ subnav }}

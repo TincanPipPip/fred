@@ -9,6 +9,7 @@ require('inc/remove-comments.php');
 require('inc/cleanup.php');
 require('inc/wysiwyg.php');
 require('inc/users.php');
+require('inc/admin.php');
 
 /**
  * Content setup

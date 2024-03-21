@@ -12,7 +12,7 @@
             </div>
           {% else %}
             {% for post in posts %}
-              {% include "/organisms/teaser.twig" with {
+              {% include "/molecule/teaser.twig" with {
                 teaser: post,
               } %}
             {% endfor %}
