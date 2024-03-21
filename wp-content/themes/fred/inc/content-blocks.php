@@ -189,3 +189,18 @@ acf_register_block( array(
   ),
   'mode'            => 'auto',
 ) );
+
+acf_register_block( array(
+  'name'            => 'signpost',
+  'title'           => __( 'Flexible signpost', 'pippip' ),
+  'description'     => __( 'Flexible signpost block', 'pippip' ),
+  'render_callback' => 'acf_block',
+  'category'        => 'content',
+  'icon'            => 'id',
+  'keywords'        => array( 'signpost', 'flexible' ),
+  'supports'        => array(
+    'align' => false,
+    'align_content' => false,
+  ),
+  'mode'            => 'auto',
+) );

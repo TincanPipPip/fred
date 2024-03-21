@@ -6,10 +6,8 @@
     {% include "/molecules/banner.twig" %}
 
     <h1>{{ post.title }}</h1>
-    
-    {% for block in blocks %}
-      {{ block }}
-    {% endfor %}
+
+    {% include '_partials/blocks.twig' %}
 
 	</article>
 {% endblock %}

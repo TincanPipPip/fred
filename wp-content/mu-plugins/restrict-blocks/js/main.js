@@ -61,6 +61,11 @@ const blockTemplateRestrictions = {
     'template-landing-page.php',
     'template-homepage.php',
   ],
+  'acf/signpost': [
+    'default',
+    'template-homepage.php',
+    'template-landing-page.php',
+  ],
 }
 
 wp.domReady(() => {

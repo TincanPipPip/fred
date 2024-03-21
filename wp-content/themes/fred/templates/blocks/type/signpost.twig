@@ -1,0 +1,65 @@
+{% block content %}
+  <section 
+    class="{{ className }} {{ className }}__{{ blockName }} {% if withBgColour %}bgColour{% endif %}" 
+    style="background-color: var({{ bgColour }}); color: var({{ textColour }})"
+  >
+    <div class="a-cols a-cols--bgColour">
+
+      <div class="signpost {% if fields.alignment %}signpost--reverse{% endif %}">
+        <div class="signpost__content">
+          {% include '_partials/block-title.twig' with {classes: ['h1']} %}
+
+          {{ fields.copy }}
+
+          {% include "atoms/links.twig" with {links: fields.links} %}
+          
+          {% if fields.cta.url %}
+            {% include "atoms/button.twig" with {
+              button: fields.cta,
+              classes: [
+                'a-btn',
+                'a-btn--wide',
+                'a-btn--narrow',
+                isDark ? 'a-btn--wh', ''
+              ],
+              hasIcon: true
+            } %}
+          {% endif %}
+        </div>
+
+        <a 
+          href="{{ Image(fields.image).src }}" 
+          data-caption="{% if fields.image.caption %}{{ fields.image.caption }}{% endif %}" 
+          data-img-height="{{ fields.image.height }}" 
+          data-img-width="{{ fields.image.width }}"
+          data-gallery
+          class="signpost__image restricted-height"
+          aria-label="View {{ fields.image.title }} image fullsize"
+        >
+          <figure>
+            <picture>
+              <source media="(max-width: 400px)" data-srcset="{{ Image(fields.image).src|resize(370) }} 1x, {{ Image(fields.image).src|resize(660) }} 2x" type="image/jpeg">
+              <source media="(max-width: 768px)" data-srcset="{{ Image(fields.image).src|resize(624) }} 1x, {{ Image(fields.image).src|resize(1258) }} 2x" type="image/jpeg">
+              <source media="(max-width: 1024px)" data-srcset="{{ Image(fields.image).src|resize(470) }}" type="image/jpeg">
+              <img 
+                {% if is_preview %}
+                  src="{{ Image(fields.image).src|resize(693) }}"
+                  class="restricted-height"
+                {% else %}
+                  data-src="{{ Image(fields.image).src|resize(0, 700) }}"
+                  data-srcset="{{ Image(fields.image).src|resize(0, 700) }} 1x, {{ Image(fields.image).src|resize(0, 1386) }} 2x"
+                  class="lazy restricted-height"
+                {% endif %}
+                alt="{{ fields.image.alt }}"
+              />
+            </picture>
+            {% include "atoms/image-credit.twig" with {
+              credit: fields.image.caption
+            } %}        
+          </figure>
+        </a>
+      </div>
+
+    </div>
+  </section>
+{% endblock %}

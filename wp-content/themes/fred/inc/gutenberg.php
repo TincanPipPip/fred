@@ -59,6 +59,7 @@ function allowed_blocks( $allowed_blocks, $post ){
     'acf/imagetext',
     'acf/video',
     'acf/table',
+    'acf/signpost',
   );
   
   return $allowed_blocks;
