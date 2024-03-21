@@ -1,0 +1,24 @@
+<section class="{{ className }} {{ className }}__{{ blockName }}">
+  <div class="m-highlightedpanel">
+
+    {% set image = fields.image %}
+
+    <div class="m-highlightedpanel__copy">
+        {% if fields.title %}
+            <h3 class="h4">{{ fields.title }}</h3>
+        {% endif %}
+
+        {{ fields.copy }}
+
+         {% if fields.link.url %}
+            {% include "atoms/button.twig" with {
+                button: fields.link,
+                classes: [
+                'a-btn',
+                ],
+            } %}
+        {% endif %}
+    </div>
+    
+  </div>
+</section>

@@ -192,12 +192,27 @@ acf_register_block( array(
 
 acf_register_block( array(
   'name'            => 'signpost',
-  'title'           => __( 'Flexible signpost', 'pippip' ),
-  'description'     => __( 'Flexible signpost block', 'pippip' ),
+  'title'           => __( 'Flexible signpost', 'fred' ),
+  'description'     => __( 'Flexible signpost block', 'fred' ),
   'render_callback' => 'acf_block',
   'category'        => 'content',
   'icon'            => 'id',
   'keywords'        => array( 'signpost', 'flexible' ),
+  'supports'        => array(
+    'align' => false,
+    'align_content' => false,
+  ),
+  'mode'            => 'auto',
+) );
+
+acf_register_block( array(
+  'name'            => 'highlightedpanel',
+  'title'           => __( 'Highlighted Panel', 'fred' ),
+  'description'     => __( 'Highlighted Panel block', 'fred' ),
+  'render_callback' => 'acf_block',
+  'category'        => 'content',
+  'icon'            => 'feedback',
+  'keywords'        => array( 'highlightedpanel', 'flexible' ),
   'supports'        => array(
     'align' => false,
     'align_content' => false,

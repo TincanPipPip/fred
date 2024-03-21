@@ -60,6 +60,7 @@ function allowed_blocks( $allowed_blocks, $post ){
     'acf/video',
     'acf/table',
     'acf/signpost',
+    'acf/highlightedpanel',
   );
   
   return $allowed_blocks;
