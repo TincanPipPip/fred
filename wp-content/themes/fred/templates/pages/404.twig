@@ -1,28 +1,48 @@
 {% extends "/layout/base.twig" %}
 
 {% block content %}
-  <article class="post-type-{{post.post_type}}" data-template="404">
+     
+    {# '<pre>' ,  <h1>{{ dump(post) }}</h1> , '</pre>' #}
+    <h1>{{ post.post_title }}</h1>
 
+    {% include '_partials/blocks.twig' %}
+
+  <article class="post-type-{{post.post_type}}" data-template="404">
+  
     {% set image = options.fourohfour_image %}
 
     {% if image %}
-      <figure class="m-banner">
-        <picture>
-          <source media="(max-width: 400px)" data-srcset="{{ Image(image).src|resize(400) }} 1x, {{ Image(image).src|resize(800) }} 2x" type="image/jpeg">
-          <source media="(max-width: 800px)" data-srcset="{{ Image(image).src|resize(800) }} 1x, {{ Image(image).src|resize(1600) }} 2x" type="image/jpeg">
-          <img data-src="{{ Image(image).src }}" alt="{{ image.alt }}" data-srcset="{{ Image(image).src }} 1x, {{ Image(image).src }} 2x" class="lazy" />
-        </picture>
+      <figure class="m-banner m-banner--default">
+        <a 
+          href="{{ Image(image).src }}" 
+          data-gallery 
+          data-img-height="{{ Image(image).height }}"
+          data-img-width="{{ Image(image).width }}" 
+          title="View banner image"
+        >
+          <picture>
+            <source media="(max-width: 400px)" data-srcset="{{ Image(image).src|resize(370) }} 1x, {{ Image(image).src|resize(660) }} 2x" type="image/jpeg">
+            <source media="(max-width: 800px)" data-srcset="{{ Image(image).src|resize(800) }} 1x, {{ Image(image).src|resize(1600) }} 2x" type="image/jpeg">
+            <source media="(max-width: 1100px)" data-srcset="{{ Image(image).src|resize(1100) }}" type="image/jpeg">
+            <img data-src="{{ Image(image).src }}" alt="{{ image.alt }}" class="lazy" />
+          </picture>
+        </a>
         {% include "atoms/image-credit.twig" with {
           credit: image.caption
         } %}
       </figure>
     {% endif %}
 
-    <h1>{{ options.fourohfour_title }}</h1>   
-    
-    <div class="m-entity m-entity__intro">
-      {{ options.fourohfour_copy }}
-    </div>
+    <h1>{{ options.fourohfour_title }}</h1>
+
+    <section class="m-intro">
+      <div class="a-cols a-cols--sm">
+        <div class="m-entity m-entity__intro">
+          {{ options.fourohfour_copy }}
+        </div>
+      </div>
+    </section>
 
 	</article>
+
 {% endblock %}
