@@ -1,48 +1,59 @@
 {% extends "/layout/base.twig" %}
 
 {% block content %}
-     
-    {# '<pre>' ,  <h1>{{ dump(post) }}</h1> , '</pre>' #}
+
+  {% if post %}
     <h1>{{ post.post_title }}</h1>
 
     {% include '_partials/blocks.twig' %}
 
-  <article class="post-type-{{post.post_type}}" data-template="404">
-  
-    {% set image = options.fourohfour_image %}
+  {% elseif image or options.fourohfour_title or options.fourohfour_copy %}
 
-    {% if image %}
-      <figure class="m-banner m-banner--default">
-        <a 
-          href="{{ Image(image).src }}" 
-          data-gallery 
-          data-img-height="{{ Image(image).height }}"
-          data-img-width="{{ Image(image).width }}" 
-          title="View banner image"
-        >
-          <picture>
-            <source media="(max-width: 400px)" data-srcset="{{ Image(image).src|resize(370) }} 1x, {{ Image(image).src|resize(660) }} 2x" type="image/jpeg">
-            <source media="(max-width: 800px)" data-srcset="{{ Image(image).src|resize(800) }} 1x, {{ Image(image).src|resize(1600) }} 2x" type="image/jpeg">
-            <source media="(max-width: 1100px)" data-srcset="{{ Image(image).src|resize(1100) }}" type="image/jpeg">
-            <img data-src="{{ Image(image).src }}" alt="{{ image.alt }}" class="lazy" />
-          </picture>
-        </a>
-        {% include "atoms/image-credit.twig" with {
-          credit: image.caption
-        } %}
-      </figure>
-    {% endif %}
+    <article class="post-type-{{post.post_type}}" data-template="404">
+      {% if options.fourohfour_title %}
+        <h1>{{ options.fourohfour_title }}</h1>
+      {% endif %}
+    
+      {% set image = options.fourohfour_image %}
 
-    <h1>{{ options.fourohfour_title }}</h1>
+      {% if image %}
+        <figure class="m-banner m-banner--default">
+          <a 
+            href="{{ Image(image).src }}" 
+            data-gallery 
+            data-img-height="{{ Image(image).height }}"
+            data-img-width="{{ Image(image).width }}" 
+            title="View banner image"
+          >
+            <picture>
+              <source media="(max-width: 400px)" data-srcset="{{ Image(image).src|resize(370) }} 1x, {{ Image(image).src|resize(660) }} 2x" type="image/jpeg">
+              <source media="(max-width: 800px)" data-srcset="{{ Image(image).src|resize(800) }} 1x, {{ Image(image).src|resize(1600) }} 2x" type="image/jpeg">
+              <source media="(max-width: 1100px)" data-srcset="{{ Image(image).src|resize(1100) }}" type="image/jpeg">
+              <img data-src="{{ Image(image).src }}" alt="{{ image.alt }}" class="lazy" />
+            </picture>
+          </a>
+          {% include "atoms/image-credit.twig" with {
+            credit: image.caption
+          } %}
+        </figure>
+      {% endif %}
 
-    <section class="m-intro">
-      <div class="a-cols a-cols--sm">
-        <div class="m-entity m-entity__intro">
-          {{ options.fourohfour_copy }}
-        </div>
-      </div>
-    </section>
+      {% if options.fourohfour_copy %}
+        <section class="m-intro">
+          <div class="a-cols a-cols--sm">
+            <div class="m-entity m-entity__intro">
+              {{ options.fourohfour_copy }}
+            </div>
+          </div>
+        </section>
+      {% endif %}
 
-	</article>
+    </article>
+  {% else %}
+
+    <h1>404</h1>
+    <p>Sorry, we couldn't find the page you were looking for.</p>
+
+  {% endif %}
 
 {% endblock %}
