@@ -1,0 +1,49 @@
+{
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "advanced-custom-fields/advanced-custom-fields-pro",
+        "version": "5.8.12",
+        "type": "wordpress-muplugin",
+        "dist": {
+          "type": "zip",
+          "url": "https://connect.advancedcustomfields.com/index.php?a=download&p=pro&k={%ACF_PRO_KEY}&t={%version}"
+        },
+        "require": {
+          "composer/installers": "^1.4",
+          "ffraenz/private-composer-installer": "^4.0"
+        }
+      }
+    }
+  ],
+  "require": {
+    "advanced-custom-fields/advanced-custom-fields-pro": "^5.0.0",
+    "wpackagist-plugin/timber-library": "^1.17",
+    "manuelodelain/svg-twig-extension": "^0.1.0",
+    "wpackagist-plugin/redirection": "^4.8",
+    "wpackagist-plugin/wordpress-seo": "^15.0",
+    "wpackagist-plugin/wps-hide-login": "^1.5",
+    "wpackagist-plugin/wp-cfm": "^1.6"
+  },
+  "extra": {
+    "installer-paths": {
+      "wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugin", "wpackagist-plugin/timber-library", "wpackagist-plugin/redirection", "wpackagist-plugin/wordpress-seo", "wpackagist-plugin/wps-hide-login", "wpackagist-plugin/wp-cfm"],
+      "wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+      "wp-content/themes/{$name}/": ["type:wordpress-theme"]
+    }
+  },
+  "scripts": {
+    "remove-git-submodules": "find . -mindepth 2 -type d -name .git | xargs rm -rf",
+    "post-install-cmd": [
+      "@remove-git-submodules"
+    ],
+    "post-update-cmd": [
+      "@remove-git-submodules"
+    ]
+  }
+}

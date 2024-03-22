@@ -1,0 +1,18 @@
+{
+  "blogdescription": "",
+  "current_theme": "Fred",
+  "date_format": "d/m/Y",
+  "default_role": "subscriber",
+  "permalink_structure": "/%postname%/",
+  "require_name_email": "1",
+  "rss_use_excerpt": "1",
+  "start_of_week": "1",
+  "theme_mods_fred": "a:3:{i:0;b:0;s:18:\"nav_menu_locations\";a:0:{}s:18:\"custom_css_post_id\";i:-1;}",
+  "theme_switched": "",
+  "time_format": "H:i",
+  "timezone_string": "",
+  "upload_path": "",
+  "users_can_register": "0",
+  "whl_page": "member",
+  ".label": "Fred"
+}

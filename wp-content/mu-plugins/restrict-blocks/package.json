@@ -15,9 +15,7 @@
     "webpack-cli": "^3.3.12"
   },
   "scripts": {
-    "build": "webpack --config webpack.config.js",
-    "production": "webpack --mode production --config webpack.config.js",
-    "dev": "webpack --mode development --config webpack.config.js"
+    "build": "webpack --config webpack.config.js"
   },
   "author": "",
   "license": "ISC"

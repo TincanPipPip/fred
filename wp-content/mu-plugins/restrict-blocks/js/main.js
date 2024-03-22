@@ -6,66 +6,18 @@ import TemplateWhitelister from './TemplateWhitelister'
  * restricted to.
  */
 const blockTemplateRestrictions = {
-  'acf/image': [
-    'default',
-    'template-landing-page.php',
-    'template-homepage.php',
-  ],
-  'acf/accordion': [
-    'default',
-    'template-landing-page.php',
-    'template-homepage.php',
-  ],
-  'acf/image': [
-    'default',
-    'template-landing-page.php',
-    'template-homepage.php',
-  ],
-  'acf/gallery': [
-    'default',
-    'template-landing-page.php',
-    'template-homepage.php',
-  ],
-  'acf/downloads': [
-    'default',
-    'template-landing-page.php',
-    'template-homepage.php',
-  ],
-  'acf/embed': [
-    'default',
-    'template-landing-page.php',
-    'template-homepage.php',
-  ],
-  'acf/testimonial': [
-    'default',
-    'template-landing-page.php',
-    'template-homepage.php',
-  ],
-  'acf/linkedlogos': [
-    'default',
-    'template-landing-page.php',
-    'template-homepage.php',
-  ],
-  'acf/cta': [
-    'default',
-    'template-landing-page.php',
-    'template-homepage.php',
-  ],
-  'acf/imagetext': [
-    'default',
-    'template-landing-page.php',
-    'template-homepage.php',
-  ],
-  'acf/video': [
-    'default',
-    'template-landing-page.php',
-    'template-homepage.php',
-  ],
-  'acf/signpost': [
-    'default',
-    'template-homepage.php',
-    'template-landing-page.php',
-  ],
+  'acf/text': ['template-default.php'],
+  'acf/accordion': ['template-default.php'],
+  'acf/image': ['template-default.php'],
+  'acf/gallery': ['template-default.php'],
+  'acf/downloads': ['template-default.php'],
+  'acf/embed': ['template-default.php'],
+  'acf/quote': ['template-default.php'],
+  'acf/linkedlogos': ['template-default.php'],
+  'acf/cta': ['template-default.php'],
+  'acf/imagetext': ['template-default.php'],
+  'acf/video': ['template-default.php'],
+  'acf/table': ['template-default.php'],
 }
 
 wp.domReady(() => {

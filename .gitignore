@@ -56,7 +56,5 @@ Thumbs.db
 ##########
 .sass-cache
 
-wp-config-ddev.php
-node_modules
-
 .env
+node_modules
