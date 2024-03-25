@@ -1,0 +1,50 @@
+<section class="m-block o-teaser-section">
+    <div class="grid justify-center">
+        <div class="col-sm-12">
+            <div class="o-teaser-section__inner">
+                {# '<pre>' , {{ dump(fields) }} , '</pre>' #}
+                {% for teaser in fields.teaser_section %}
+                    {% if teaser['type_of_teaser'] == "custom"  %}
+                        {% include "/molecules/teaser.twig" with {
+                            teaser: teaser,
+                            type: 'teaser',
+                            imageMaxWidth: 400,
+                            imageMaxHeight: 400,
+                            imageWidths: [
+                                {
+                                size: 400,
+                                imageWidth: 400,
+                                imageWidth2x: 800
+                                },
+                                {
+                                size: 800,
+                                imageWidth: 800,
+                                imageWidth2x: 1600
+                                },
+                            ]
+                        } %}
+                    {% elseif teaser['type_of_teaser'] == "reference" %}
+                        {% include "/molecules/teaser.twig" with {
+                        teaser: teaser["teaser"],
+                        type: 'teaser',
+                        imageMaxWidth: 400,
+                        imageMaxHeight: 400,
+                        imageWidths: [
+                            {
+                            size: 400,
+                            imageWidth: 400,
+                            imageWidth2x: 800
+                            },
+                            {
+                            size: 800,
+                            imageWidth: 800,
+                            imageWidth2x: 1600
+                            },
+                        ]
+                        } %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

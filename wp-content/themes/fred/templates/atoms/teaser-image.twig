@@ -29,9 +29,12 @@
     <img 
       {% if is_preview %}
         src="{{ Image(image).src|resize(width, height) }}"
-      {% else %}
+      {% elseif image %}
         data-src="{{ Image(image).src|resize(width, height) }}"
         data-srcset="{{ Image(image).src|resize(width, height) }} 1x, {{ Image(image).src|resize(width * 2, height * 2) }} 2x"
+        class="lazy"
+      {% else %}
+        src="/wp-content/themes/fred/assets/img/img-teaser-placeholder.png"
         class="lazy"
       {% endif %}
       alt="{{ image.alt }}"

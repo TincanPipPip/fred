@@ -78,6 +78,12 @@ const blockTemplateRestrictions = {
     '404.php',
     'template-landing-page.php',
   ],
+  'acf/signpostsection': [
+    'default',
+    'template-homepage.php',
+    '404.php',
+    'template-landing-page.php',
+  ],
 }
 
 wp.domReady(() => {

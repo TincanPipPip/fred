@@ -219,3 +219,18 @@ acf_register_block( array(
   ),
   'mode'            => 'auto',
 ) );
+
+acf_register_block( array(
+  'name'            => 'signpostsection',
+  'title'           => __( 'Signpost Section', 'fred' ),
+  'description'     => __( 'Signpost Section block', 'fred' ),
+  'render_callback' => 'acf_block',
+  'category'        => 'content',
+  'icon'            => 'feedback',
+  'keywords'        => array( 'signpostsection', 'flexible' ),
+  'supports'        => array(
+    'align' => false,
+    'align_content' => false,
+  ),
+  'mode'            => 'auto',
+) );

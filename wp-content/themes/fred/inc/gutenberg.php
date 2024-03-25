@@ -58,6 +58,7 @@ function allowed_blocks( $allowed_blocks, $post ){
     'acf/table',
     'acf/signpost',
     'acf/highlightedpanel',
+    'acf/signpostsection',
   );
   
   return $allowed_blocks;

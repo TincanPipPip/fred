@@ -279,16 +279,9 @@
     "location": [
         [
             {
-                "param": "post_template",
+                "param": "block",
                 "operator": "==",
-                "value": "default"
-            }
-        ],
-        [
-            {
-                "param": "post_template",
-                "operator": "==",
-                "value": "template-landing-page.php"
+                "value": "acf\/signpostsection"
             }
         ]
     ],
@@ -301,5 +294,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1711012990
+    "modified": 1711389421
 }

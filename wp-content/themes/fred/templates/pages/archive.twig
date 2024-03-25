@@ -5,7 +5,7 @@
 
     <h1>{{ title }}</h1>
 
-    <section class="m-entity m-entity__archives">
+    <section class="m-block m-block__archives">
       {% if posts|length > 0 %}          
         {% for post in posts %}
           {% include "molecules/teaser.twig" with {
