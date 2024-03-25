@@ -1,9 +1,9 @@
 === User Role Editor ===
 Contributors: shinephp
-Tags: user, role, editor, security, access, permission, capability
+Tags: user, role, editor, security, access
 Requires at least: 4.4
-Tested up to: 6.2
-Stable tag: 4.63.3
+Tested up to: 6.4.3
+Stable tag: 4.64.2
 Requires PHP: 7.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -81,10 +81,24 @@ https://translate.wordpress.org/projects/wp-plugins/user-role-editor/
 
 
 == Changelog =
-= [4.63.3] 12.03.2023 =
-* Fix: PHP version 8.2 showed warning: Creation of dynamic property User_Role_Editor::$settings_page_hook is deprecated : wp-content/plugins/user-role-editor/includes/classes/user-role-editor.php:603
-* Fix: PHP Fatal error:  Uncaught TypeError: in_array(): Argument #2 ($haystack) must be of type array, int given in wp-content/plugins/user-role-editor/includes/classes/view.php:81
-* Fix: PHP Parse error: syntax error, unexpected ‘:’, expecting ‘;’ or ‘{‘: wp-content/plugins/user-role-editor/includes/classes/base-lib.php on line 119, type declarations were removed for compatibility with older PHP versions. 
+
+= [4.64.2] 19.02.2024 =
+* Update: Marked as compatible with WordPress 6.4.3
+* Update: URE_Advertisement: rand() is replaced with wp_rand().
+* Update: URE_Ajax_Proccessor: json_encode() is replaced with wp_json_encode().
+* Update: User_Role_Editor::load_translation(): load_plugin_textdomain() is called with the 2nd parameter value false, instead of deprecated ''.
+* Update: URE_Lib::is_right_admin_path(): parse_url() is replaced with wp_parse_url().
+* Update: URE_Lib::user_is_admin() does not call WP_User::has_cap() to enhance performance.
+* Update: Plugin version was added to CSS loaded to the "Users", "Users->User Role Editor", "Settings->User Role Editor" pages.
+* Update: All JavaScript files are loaded in footer now.
+* Fix: "Users->Add New Users". Unneeded extra '<table></table>' HTML tags was removed (thanks to Alejandro A. for this bug report). 
+
+= [4.64.1] 24.10.2023 =
+* Update: Marked as compatible with WordPress 6.4
+* Fix: Notice shown by PHP 8.3 is removed: PHP Deprecated: Creation of dynamic property URE_Editor::$hide_pro_banner is deprecated in /wp-content/plugins/user-role-editor/includes/classes/editor.php on line 166
+* Fix: Notice shown by PHP 8.3 is removed: PHP Deprecated: Creation of dynamic property URE_Role_View::$caps_to_remove is deprecated in /wp-content/plugins/user-role-editor/includes/classes/role-view.php on line 23
+* Fix: Notice shown by PHP 8.3 is removed: PHP Deprecated: Function utf8_decode() is deprecated in /wp-content/plugins/user-role-editor-pro/includes/classes/editor.php on line 984
+
 
 File changelog.txt contains the full list of changes.
 
@@ -96,10 +110,12 @@ I am ready to answer on your questions about plugin usage. Use [plugin page comm
 
 == Upgrade Notice ==
 
-= [4.63.3] 12.03.2023 =
-* Fix: PHP version 8.2 showed warning: Creation of dynamic property User_Role_Editor::$settings_page_hook is deprecated : wp-content/plugins/user-role-editor/includes/classes/user-role-editor.php:603
-* Fix: PHP Fatal error:  Uncaught TypeError: in_array(): Argument #2 ($haystack) must be of type array, int given in wp-content/plugins/user-role-editor/includes/classes/view.php:81
-* Fix: PHP Parse error: syntax error, unexpected ‘:’, expecting ‘;’ or ‘{‘: wp-content/plugins/user-role-editor/includes/classes/base-lib.php on line 119, type declarations were removed for compatibility with older PHP versions. 
-
-
-
+= [4.64.2] 19.02.2023 =
+* Update: URE_Advertisement: rand() is replaced with wp_rand().
+* Update: URE_Ajax_Proccessor: json_encode() is replaced with wp_json_encode().
+* Update: User_Role_Editor::load_translation(): load_plugin_textdomain() is called with the 2nd parameter value false, instead of deprecated ''.
+* Update: URE_Lib::is_right_admin_path(): parse_url() is replaced with wp_parse_url().
+* Update: URE_Lib::user_is_admin() does not call WP_User::has_cap() to enhance performance.
+* Update: Plugin version was added to CSS loaded to the "Users", "Users->User Role Editor", "Settings->User Role Editor" pages.
+* Update: All JavaScript files are loaded in footer now.
+* Fix: "Users->Add New Users". Unneeded extra '<table></table>' HTML tags was removed (thanks to Alejandro A. for this bug report). 
