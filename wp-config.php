@@ -1,7 +1,4 @@
 <?php
-define('COOKIE_DOMAIN', $_SERVER['HTTP_HOST'] );
-//define('DISABLE_WP_CRON', true);
-
 /**
  * This config file is yours to hack on. It will work out of the box on Pantheon
  * but you may find there are a lot of neat tricks to be used here.
@@ -14,7 +11,7 @@ define('COOKIE_DOMAIN', $_SERVER['HTTP_HOST'] );
 /**
  * Pantheon platform settings. Everything you need should already be set.
  */
-define('WPCACHEHOME', '/var/www/html/wp-content/plugins/wp-super-cache/');
+// define('WPCACHEHOME', '/var/www/html/wp-content/plugins/wp-super-cache/');
 $ddev_settings = dirname(__FILE__) . '/wp-config-ddev.php';
 if (is_readable($ddev_settings) && !defined('DB_USER')) {
     require_once($ddev_settings);
