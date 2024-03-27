@@ -43,6 +43,7 @@ export default function Accordion() {
   }, [loadedBlockData]);
 
   const rowToggle = (el: HTMLButtonElement) => {
+
     new AccordionFunctionality(el as HTMLElement);
   }
 
@@ -51,7 +52,7 @@ export default function Accordion() {
       {processedData ? processedData.map((accordionData: AccordionData, i: number) => (
 
         <React.Fragment key={i}>
-          <section className="m-entity m-entity__accordion">
+          <section className="m-block m-block__accordion">
             <h2>{accordionData.accTitle}</h2>
             <div className="js-accordion">
               {accordionData.accordionRows.map((accordion: AccordionRow, j: number) => (
@@ -65,9 +66,7 @@ export default function Accordion() {
                       id={`accordion${i}-${j}id`}
                       onClick={(e) => rowToggle(e.target as HTMLButtonElement)}
                     >
-                      <span>
-                        {accordion.title}
-                      </span>
+                      {accordion.title}
                     </button>
                   </h2>
                   <div

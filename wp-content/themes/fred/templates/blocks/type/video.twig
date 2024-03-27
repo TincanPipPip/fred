@@ -1,5 +1,29 @@
-<section class="{{ className }} {{ className }}__{{ blockName }}">
-  {% include '_partials/block-title.twig' %}
+  {# {{ dump(fields) }} #}
 
-  {{ fields.video }}
+  {# {{ dump(fields.video_option)}}
+
+  {{ fields.video }} #}
+
+<section class="{{ className }} {{ className }}__{{ blockName }} {% if fields.centred_title %} m-block__video--centered{% endif %}">
+  <div class="m-block__video--container">
+    <div class="grid">
+      <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1 col-sm-12">
+
+          {% include '_partials/block-title.twig' %}
+
+          {% if fields.video_option and fields.video_option[0]['acf_fc_layout'] == 'video_youtubevimeo_url' %}
+
+          <div class="video-container">
+              {{ fields.video_option[0]['video'] }}
+          </div>
+
+          {% elseif fields.video_option and fields.video_option[0]['acf_fc_layout'] == 'video_file' %}
+
+              {% include 'atoms/video.twig' with {video: fields.video_option[0]['video_file']} %}
+
+          {% endif %}
+
+      </div>
+    </div>
+  </div>
 </section>

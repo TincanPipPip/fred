@@ -11,7 +11,7 @@ export const siteUrl = window.location.origin
 // /wp-json/wp/v2/pages/
 
 export default async function DataFetch(pageIndex: String) {
-    console.log(pageIndex)
+
     await axios
     .get(`${siteUrl}/wp-json/wp/v2/pages/${pageIndex}/`)
     .then(res => {
@@ -21,7 +21,6 @@ export default async function DataFetch(pageIndex: String) {
             return []; // Return empty array if no block data found
         }
 
-        console.log(blockData)
         return blockData;
     })
     .catch(err => {

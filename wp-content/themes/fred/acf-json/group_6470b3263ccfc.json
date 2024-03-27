@@ -1,0 +1,144 @@
+{
+    "key": "group_6470b3263ccfc",
+    "title": "Block - Video",
+    "fields": [
+        {
+            "key": "field_6470b327f2ab4",
+            "label": "Title",
+            "name": "title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "acfe_save_meta": 0,
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_64778e5bd0242",
+            "label": "Centred Title",
+            "name": "centred_title",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "acfe_save_meta": 0,
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_64aff2c5cd79b",
+            "label": "Video Option",
+            "name": "video_option",
+            "aria-label": "",
+            "type": "flexible_content",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layouts": {
+                "layout_64aff31488941": {
+                    "key": "layout_64aff31488941",
+                    "name": "video_youtubevimeo_url",
+                    "label": "Video (Youtube\/Vimeo) Url",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_64aff31488942",
+                            "label": "Video (Youtube\/Vimeo) Url",
+                            "name": "video",
+                            "aria-label": "",
+                            "type": "oembed",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "width": "",
+                            "height": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_64aff2ccdbef3": {
+                    "key": "layout_64aff2ccdbef3",
+                    "name": "video_file",
+                    "label": "Video File",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_64aff2d4cd79c",
+                            "label": "Video File",
+                            "name": "video_file",
+                            "aria-label": "",
+                            "type": "file",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "library": "all",
+                            "min_size": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                }
+            },
+            "min": 1,
+            "max": 1,
+            "button_label": "Add Row"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/video"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "left",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1711540965
+}
