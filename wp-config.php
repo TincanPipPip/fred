@@ -13,10 +13,11 @@
  */
 // define('WPCACHEHOME', '/var/www/html/wp-content/plugins/wp-super-cache/');
 $ddev_settings = dirname(__FILE__) . '/wp-config-ddev.php';
-if (is_readable($ddev_settings) && !defined('DB_USER')) {
-    require_once($ddev_settings);
-} elseif (file_exists(dirname(__FILE__) . '/wp-config-pantheon.php') && isset($_ENV['PANTHEON_ENVIRONMENT'])) {
+
+if (file_exists(dirname(__FILE__) . '/wp-config-pantheon.php') && isset($_ENV['PANTHEON_ENVIRONMENT'])) {
     require_once(dirname(__FILE__) . '/wp-config-pantheon.php');
+} elseif (is_readable($ddev_settings) && !isset($_ENV['PANTHEON_ENVIRONMENT'])) {
+    require_once($ddev_settings);
 
     /**
      * Local configuration information.
@@ -73,9 +74,6 @@ $table_prefix = 'wp_';
  * You may want to examine $_ENV['PANTHEON_ENVIRONMENT'] to set this to be
  * "true" in dev, but false in test and live.
  */
-if (!defined('WP_DEBUG')) {
-    define('WP_DEBUG', false);
-}
 if (!empty($_ENV['PANTHEON_ENVIRONMENT'])) {
     $site_name = $_ENV['PANTHEON_SITE_NAME'];
     // Override $hostname value as needed.
@@ -109,8 +107,9 @@ if (!empty($_ENV['PANTHEON_ENVIRONMENT'])) {
 
 
 // Enable Debug logging to the /wp-content/debug.log file
-define('WP_DEBUG_LOG', true);
-
+if (!defined('WP_DEBUG')) {
+    define('WP_DEBUG', false);
+}
 // Disable display of errors and warnings
 define('WP_DEBUG_DISPLAY', false);
 @ini_set('display_errors', 0);
