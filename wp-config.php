@@ -74,37 +74,6 @@ $table_prefix = 'wp_';
  * You may want to examine $_ENV['PANTHEON_ENVIRONMENT'] to set this to be
  * "true" in dev, but false in test and live.
  */
-if (!empty($_ENV['PANTHEON_ENVIRONMENT'])) {
-    $site_name = $_ENV['PANTHEON_SITE_NAME'];
-    // Override $hostname value as needed.
-    switch ($_ENV['PANTHEON_ENVIRONMENT']) {
-        case 'live':
-            $hostname =  $_SERVER['HTTP_HOST'];
-            break;
-        case 'test':
-            $hostname = 'test-' . $site_name . '.pantheonsite.io';
-            break;
-        case 'dev':
-            $hostname = 'dev-' . $site_name . '.pantheonsite.io';
-            break;
-        case 'lando':
-            $hostname = $site_name . '.lndo.site';
-            break;
-        default:
-            $hostname = $_ENV['PANTHEON_ENVIRONMENT'] . '-' . $site_name . '.pantheonsite.io';
-            break;
-    }
-    define('SCRIPT_DEBUG', true);
-    define('MULTISITE', true);
-    define('SUBDOMAIN_INSTALL', true);
-    define('DOMAIN_CURRENT_SITE', $hostname);
-    define('PATH_CURRENT_SITE', '/');
-    define('SITE_ID_CURRENT_SITE', 1);
-    define('BLOG_ID_CURRENT_SITE', 1);
-} 
-
-// Enable WP_DEBUG mode
-
 
 // Enable Debug logging to the /wp-content/debug.log file
 if (!defined('WP_DEBUG')) {
