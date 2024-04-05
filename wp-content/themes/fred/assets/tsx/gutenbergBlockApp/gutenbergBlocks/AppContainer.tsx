@@ -12,7 +12,7 @@ export default function AppContainer() {
 
   return (
       <>
-          {blockName == 'accordion' ?  <Accordion /> : ''};
+          {blockName == 'accordion' ?  <Accordion /> : ''}
           {/* {blockName == 'gallery' ?  <Gallery /> : ''}; */}
       </>
   )

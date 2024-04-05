@@ -6,6 +6,16 @@
  */
 
 &__accordion {
+  &__admin-message {
+    display: none;
+    .wp-admin & {
+      display: block;
+      background-color: grey;
+      padding: 30px;
+      color: white;
+    }
+  }
+  
   .accordion {
     border-bottom: 1px solid var(--c-primary);
   }
