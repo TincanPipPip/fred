@@ -6,6 +6,7 @@
             "key": "field_5f7b9568e5eff",
             "label": "Image alignment",
             "name": "alignment",
+            "aria-label": "",
             "type": "true_false",
             "instructions": "",
             "required": 0,
@@ -25,6 +26,7 @@
             "key": "field_5f7b955be5efe",
             "label": "Image",
             "name": "image",
+            "aria-label": "",
             "type": "image",
             "instructions": "",
             "required": 1,
@@ -35,7 +37,6 @@
                 "id": ""
             },
             "return_format": "array",
-            "preview_size": "medium",
             "library": "all",
             "min_width": "",
             "min_height": "",
@@ -43,12 +44,14 @@
             "max_width": "",
             "max_height": "",
             "max_size": "",
-            "mime_types": ""
+            "mime_types": "",
+            "preview_size": "medium"
         },
         {
             "key": "field_5f7b9546e5efc",
             "label": "Title",
             "name": "title",
+            "aria-label": "",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -68,6 +71,7 @@
             "key": "field_5f7b954fe5efd",
             "label": "Copy",
             "name": "copy",
+            "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
             "required": 1,
@@ -101,5 +105,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1621331356
+    "show_in_rest": 1,
+    "modified": 1712670402
 }
