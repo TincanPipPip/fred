@@ -90,3 +90,7 @@ if (getenv('WP_ENVIRONMENT_TYPE') === false) {
             break;
     }
 }
+
+if (!defined('WP_DEBUG')) {
+    define('WP_DEBUG', true);
+}
