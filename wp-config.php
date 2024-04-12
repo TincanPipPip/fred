@@ -77,7 +77,7 @@ $table_prefix = 'wp_';
 
 // Enable Debug logging to the /wp-content/debug.log file
 if (!defined('WP_DEBUG')) {
-    define('WP_DEBUG', false);
+    define('WP_DEBUG', true);
 }
 // Disable display of errors and warnings
 define('WP_DEBUG_DISPLAY', false);
