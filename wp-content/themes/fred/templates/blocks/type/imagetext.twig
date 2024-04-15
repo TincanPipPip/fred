@@ -20,7 +20,7 @@
       </picture>
 
       {% if image.caption %}
-        {% include "_partials/image-credit.twig" with {credit: image.caption} %}
+        {% include "atoms/image-credit.twig" with {credit: image.caption} %}
       {% endif %}
     </figure>
 
