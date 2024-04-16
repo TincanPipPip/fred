@@ -76,9 +76,10 @@ $table_prefix = 'wp_';
  */
 
 // Enable Debug logging to the /wp-content/debug.log file
-if (!defined('WP_DEBUG')) {
-    define('WP_DEBUG', true);
-}
+
+// define('WP_DEBUG', true);
+define( 'WP_DEBUG_LOG', true );
+
 // Disable display of errors and warnings
 define('WP_DEBUG_DISPLAY', false);
 @ini_set('display_errors', 0);
