@@ -3,7 +3,7 @@
 {% block content %}
 	<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}" data-template="page.twig">
 
-    {# {% include "/molecules/banner.twig" %} #}
+    {% include "/molecules/banner.twig" %}
       
     <h1>{{ post.title }}</h1>
 
@@ -11,9 +11,9 @@
       {% include "/organisms/teaser-section.twig" %}
     {% endif %}
   
-    <aside class="o-page__col o-page__right">
+    {# <aside class="o-page__col o-page__right">
       {{ subnav }}
-    </aside>
+    </aside> #}
 
     {% include '_partials/blocks.twig' %}
 	</article>

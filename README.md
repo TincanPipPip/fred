@@ -45,3 +45,14 @@ The `default` branch of this repository is where PRs are merged, and has [CI](ht
 ## Custom Upstreams
 
 If you are using this repository as a starting point for a custom upstream, be sure to review the [documentation](https://pantheon.io/docs/create-custom-upstream#pull-in-core-from-pantheons-upstream) and pull the core files from the `master` branch.
+
+
+## IMPORTANT
+You can also add another push URL for origin by adding a push URL within .git/config:
+
+.git/config
+[remote "origin"]
+  url = ssh://codeserver.dev.@codeserver.dev..drush.in:2222/~/repository.git
+  url = git@github.com:systemseed/example.git
+  
+Commits will be pushed to both remote destinations automatically on git push origin

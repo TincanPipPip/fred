@@ -3,9 +3,7 @@
 {% block content %}
 	<article class="post-type-{{ post.post_type }}" id="post-{{ post.ID }}" data-template="page-homepage.twig">
 
-		{% for block in blocks %}
-      {{ block }}
-    {% endfor %}
+		{% include '_partials/blocks.twig' %}
 		
 	</article>
 {% endblock %}

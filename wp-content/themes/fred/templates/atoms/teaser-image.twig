@@ -6,9 +6,11 @@
   - imageWidths: [{size: int, imageWidth: int , imageWidth2x: int}]
 #}
 
-{% set width = imageMaxWidth ? imageMaxWidth : 10 %}
-{% set height = imageMaxHeight ? imageMaxHeight : 10 %}
+{% set width = imageMaxWidth ? imageMaxWidth : "" %}
+{% set height = imageMaxHeight ? imageMaxHeight : "" %}
 
+{% set image_title = image.original_image.title is empty ? '' : image.original_image.title %}
+{% set image_alt = image.original_image.alt is empty ? '' : image.original_image.alt %}
 {% set image = teaser.teaser_image_override ? teaser.teaser_image_override : teaser.image %}
 
 <figure>
@@ -37,7 +39,10 @@
         src="/wp-content/themes/fred/assets/img/img-teaser-placeholder.png"
         class="lazy"
       {% endif %}
-      alt="{{ image.alt }}"
+      {% if width is not empty %}width="{{ width }}" {% endif %}
+      {% if height %}height="{{ height }}" {% endif %}
+      {% if image_title %}title="{{ image_title }}" {% endif %}
+      {% if image_alt %}alt="{{ image_alt }}"{% endif %}
     />
   </picture>
 </figure>

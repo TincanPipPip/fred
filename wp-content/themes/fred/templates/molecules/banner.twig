@@ -1,24 +1,33 @@
-{% if post.thumbnail.src %}
+
+{% if post.banner_image %}
+  {% set image = post.banner_image %}
+  {% set height = Image(image).height %}
+  {% set width = Image(image).width %}
+  {% set image_title = Image(image).title is empty ? '' : Image(image).title %}
+  {% set image_alt = Image(image).alt is empty ? '' : Image(image).alt %}
+{% endif %}
+
+{% if image %}
   <div class="m-banner m-banner--page" role="banner">
 
-    <div class="grid justify-end">
+    <div class="grid justify-center">
       <div class="col-sm-11 col-bleed-y">
 
-        {% set imageXs = post.thumbnail.src|resize('400','300') %}
-        {% set imageSm = post.thumbnail.src|resize('800','417') %}
-        {% set imageMd = post.thumbnail.src|resize('1100','573') %}
-        {% set imageBg = post.thumbnail.src|resize('1920','1000') %}
-
         <picture>
-          <source media="(max-width: 400px)" data-srcset="{{ imageXs }}" type="image/jpeg">
-          <source media="(max-width: 800px)" data-srcset="{{ imageSm }}" type="image/jpeg">
-          <source media="(max-width: 1100px)" data-srcset="{{ imageMd }}" type="image/jpeg">
-          <img data-src="{{ imageBg }}" alt="{{ post.thumbnail.alt }}" class="lazy" />
-        </picture>
+          <source media="(max-width: 400px)" data-srcset="{{ Image(image).src|resize(370) }} 1x, {{ Image(image).src|resize(660) }} 2x" type="image/jpeg">
+          <source media="(max-width: 800px)" data-srcset="{{ Image(image).src|resize(770) }} 1x, {{ Image(image).src|resize(1540) }} 2x" type="image/jpeg">
+          <source media="(max-width: 1100px)" data-srcset="{{ Image(image).src|resize(1100) }}" type="image/jpeg">
+          <img
+            data-src="{{ Image(image).src }}"
+            data-srcset="{{ Image(image).src|resize(width, height) }} 1x, {{ Image(image).src|resize(width * 2, height * 2) }} 2x"
+            class="lazy"
 
-        {% include "/atoms/image-credit.twig" with {
-          credit: post.thumbnail.caption
-        } %}
+            {% if width is not empty %}width="{{ width }}" {% endif %}
+            {% if height %}height="{{ height }}" {% endif %}
+            {% if image_title %}title="{{ image_title }}" {% endif %}
+            {% if image_alt %}alt="{{ image_alt }}"{% endif %}
+          />
+        </picture>
 
       </div>
     </div>

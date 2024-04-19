@@ -39,8 +39,3 @@ if ( getenv( 'IS_DDEV_PROJECT' ) == 'true' ) {
 		// phpcs:enable
 	}
 }
-
-// Enable Debug logging to the /wp-content/debug.log file
-if (!defined('WP_DEBUG')) {
-    define('WP_DEBUG', false);
-}
