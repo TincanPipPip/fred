@@ -8,6 +8,21 @@
  */
 
 acf_register_block( array(
+  'name'            => 'intro',
+  'title'           => __( 'intro', 'fred' ),
+  'description'     => __( 'WYSIWYG intro', 'fred' ),
+  'render_callback' => 'acf_block',
+  'category'        => 'content',
+  'icon'            => 'editor-aligncenter',
+  'keywords'        => array( 'intro', 'copy' ),
+  'supports'        => array(
+    'align' => false,
+    'align_content' => false,
+  ),
+  'mode'            => 'auto',
+) );
+
+acf_register_block( array(
   'name'            => 'text',
   'title'           => __( 'Text', 'fred' ),
   'description'     => __( 'WYSIWYG text', 'fred' ),

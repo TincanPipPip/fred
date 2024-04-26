@@ -44,6 +44,7 @@ add_filter('allowed_block_types', 'allowed_blocks', 10, 2);
 
 function allowed_blocks( $allowed_blocks, $post ){
   $allowed_blocks = array(
+    'acf/intro',
     'acf/text',
     'acf/accordion',
     'acf/image',
@@ -63,3 +64,4 @@ function allowed_blocks( $allowed_blocks, $post ){
   
   return $allowed_blocks;
 }
+

@@ -1,11 +1,11 @@
 {
-    "/js/admin.accordion.js": "/js/admin.accordion.js",
-    "/js/defaults.js": "/js/defaults.js",
-    "/js/emmsg.js": "/js/emmsg.js",
-    "/js/global.js": "/js/global.js",
-    "/js/gutenbergBlocks.js": "/js/gutenbergBlocks.js",
-    "/css/tailwind.css": "/css/tailwind.css",
-    "/css/print.css": "/css/print.css",
-    "/css/global.css": "/css/global.css",
-    "/css/admin.css": "/css/admin.css"
+    "/js/admin.accordion.js": "/js/admin.accordion.js?id=d78dde310b3bb6011d40ed87439b772b",
+    "/js/defaults.js": "/js/defaults.js?id=eff8935fd61f8791d704851ffc2f85ac",
+    "/js/emmsg.js": "/js/emmsg.js?id=711fcc94a6419f79e30ae07f29211a52",
+    "/js/global.js": "/js/global.js?id=d41d8cd98f00b204e9800998ecf8427e",
+    "/js/gutenbergBlocks.js": "/js/gutenbergBlocks.js?id=b3cc9638e8d8d0c98cebe967677732e7",
+    "/css/tailwind.css": "/css/tailwind.css?id=9e5a17152740fee7a4f36333941205a2",
+    "/css/print.css": "/css/print.css?id=4528618a25bd2fc07ec699355f06d4a6",
+    "/css/global.css": "/css/global.css?id=36e995f77bc9e32dfc4de6613f021ff5",
+    "/css/admin.css": "/css/admin.css?id=24ab99c5947224a14ad904a614d21438"
 }
